@@ -8,21 +8,32 @@ using WpfBDLab2.DataBase.DbConnector;
 using WpfBDLab2.DataBase.Father;
 using WpfBDLab2.DataBase.Tables;
 using WpfBDLab2.DataConvertor;
+using WpfBDLab2.VM.Forms.Cities;
+using WpfBDLab2.Windows.Cities;
 
 namespace WpfBDLab2.VM.Forms
 {
     class CitiesFormVM : BaseVM.BaseVM {
-        private ICommand _showDbCommand;
+        private ICommand _addCommand;
         private string _readAllString;
+        private int _id;
 
         public CitiesFormVM() {
-            Cities = new Cities(new DBConnector());
+            Cities = new DataBase.Tables.Cities(new DBConnector());
             _readAllString =
                 ListConvertor.ConvertToString(new TableBase().GetColumnNames(Cities, new DBConnector().DBConnection), "\t") + "\n\n";
             _readAllString += ListConvertor.ConvertToString(new TableBase().ReadAllRowsFromTable(Cities, new DBConnector().DBConnection));
         }
 
-        public Cities Cities { get; set; }
+        public DataBase.Tables.Cities Cities { get; set; }
+
+        public int Id {
+            get => _id;
+            set {
+                _id = value;
+                OnPropertyChanged(nameof(Id));
+            }
+        }
 
         public string ReadAllString {
             get => _readAllString;
@@ -31,8 +42,8 @@ namespace WpfBDLab2.VM.Forms
                 OnPropertyChanged(nameof(ReadAllString));
             }
         }
-        public ICommand ShowDbCommand => _showDbCommand ??= new RelayCommand.RelayCommand((o) => {
-            _readAllString = ListConvertor.ConvertToString(new TableBase().ReadAllRowsFromTable(Cities, new DBConnector().DBConnection));
+        public ICommand AddCommand => _addCommand ??= new RelayCommand.RelayCommand((o) => {
+            new CityAddWindow(2, "123").ShowDialog();
         });
     }
 }

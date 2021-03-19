@@ -17,6 +17,16 @@ namespace WpfBDLab2.DataBase.Father {
             return result;
         }
 
+        public string FindByIdByColumn(int id, string columnName, object table, SQLiteConnection openedDBConnection)
+        {
+            var dbConnection = openedDBConnection;
+            var sql = $"select '{columnName}' from {table.GetType().Name.ToLower()} where id = {id}";
+            var command = new SQLiteCommand(sql, dbConnection);
+            var reader = command.ExecuteReader();
+            var result = reader[columnName].ToString();
+            return result;
+        }
+
         public bool DeleteById(int id, object table, SQLiteConnection openedDBConnection) {
             var dbConnection = openedDBConnection;
             var sql = $"delete from {table.GetType().Name.ToLower()} where id = {id}";
