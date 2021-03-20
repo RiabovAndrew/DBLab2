@@ -48,7 +48,7 @@
         </Menu>
 
         <Button Command="{Binding AddCommand}" Content="Добавить" Grid.Column="1" Grid.Row="4" Margin="20"></Button>
-        <Button Content="Изменить" Grid.Column="2" Grid.Row="4" Margin="20"></Button>
-        <Button Content="Удалить" Grid.Column="3" Grid.Row="4" Margin="20"></Button>
+        <Button Command="{Binding EditCommand}" Content="Изменить" Grid.Column="2" Grid.Row="4" Margin="20"></Button>
+        <Button Command="{Binding DeleteCommand}" Content="Удалить" Grid.Column="3" Grid.Row="4" Margin="20"></Button>
     </Grid>
 </Window>

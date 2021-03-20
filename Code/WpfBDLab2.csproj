@@ -97,6 +97,7 @@
     <Compile Include="VM\BaseVM\BaseVM.cs" />
     <Compile Include="VM\Forms\Cities\CitiesFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CityAddFormVM.cs" />
+    <Compile Include="VM\Forms\Cities\CityEditFormVM.cs" />
     <Compile Include="VM\MainFormVM\MainFormVM.cs" />
     <Compile Include="VM\RelayCommand\RelayCommand.cs" />
     <Compile Include="Windows\Cities\CitiesWindow.xaml.cs">
@@ -104,6 +105,9 @@
     </Compile>
     <Compile Include="Windows\Cities\CityAddWindow.xaml.cs">
       <DependentUpon>CityAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cities\CityEditWindow.xaml.cs">
+      <DependentUpon>CityEditWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Cities\CityAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cities\CityEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

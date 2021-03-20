@@ -7,13 +7,13 @@ using System.Windows;
 using System.Windows.Input;
 
 namespace WpfBDLab2.VM.Forms.Cities {
-    class CityAddFormVM : BaseVM.BaseVM {
+    class CityEditFormVM : BaseVM.BaseVM {
         private int _id;
         private string _name;
         private ICommand _cancelCommand;
-        private ICommand _addCommand;
+        private ICommand _editCommand;
 
-        public CityAddFormVM(int id, string name) {
+        public CityEditFormVM(int id, string name) {
             Id = id;
             Name = name;
         }
@@ -41,11 +41,13 @@ namespace WpfBDLab2.VM.Forms.Cities {
                 }
             );
 
-        public ICommand AddCommand => _addCommand ??= new RelayCommand.RelayCommand((o) => {
-            new DataBase.Tables.Cities(DbConnector, Name).Insert();
-            var ms = MessageBox.Show("Новая запись была добавлена!");
-            var window = o as Window;
-            window?.Close();
-        });
+        public ICommand EditCommand =>
+            _editCommand ??= new RelayCommand.RelayCommand((o) => {
+                    new DataBase.Tables.Cities(DbConnector).EditByID(Id, new DataBase.Tables.Cities(DbConnector, Name));
+                    var ms = MessageBox.Show("Запись была обновлена!");
+                    var window = o as Window;
+                    window?.Close();
+                }
+            );
     }
 }

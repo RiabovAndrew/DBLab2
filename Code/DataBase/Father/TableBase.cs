@@ -20,10 +20,11 @@ namespace WpfBDLab2.DataBase.Father {
         public string FindByIdByColumn(int id, string columnName, object table, SQLiteConnection openedDBConnection)
         {
             var dbConnection = openedDBConnection;
-            var sql = $"select '{columnName}' from {table.GetType().Name.ToLower()} where id = {id}";
+            var sql = $"select {columnName} from {table.GetType().Name.ToLower()} where id = {id}";
             var command = new SQLiteCommand(sql, dbConnection);
             var reader = command.ExecuteReader();
-            var result = reader[columnName].ToString();
+            var result = "";
+            while (reader.Read()) result = reader[columnName].ToString();
             return result;
         }
 
