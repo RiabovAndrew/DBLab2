@@ -17,7 +17,7 @@ namespace WpfBDLab2.VM.MainFormVM
 
         public ICommand OpenCitiesTableCommand =>
             _openCitiesTableCommand ??= new RelayCommand.RelayCommand((o) => {
-                new CitiesWindow().ShowDialog();
+                new CitiesWindow().Show();
             });
     }
 }
