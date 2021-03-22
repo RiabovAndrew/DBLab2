@@ -7,35 +7,34 @@ using System.Windows;
 using System.Windows.Input;
 using WpfBDLab2.DataBase.DbConnector;
 using WpfBDLab2.DataBase.Father;
-using WpfBDLab2.DataBase.Tables;
 using WpfBDLab2.DataConvertor;
-using WpfBDLab2.VM.Forms.Cities;
 using WpfBDLab2.Windows.Cities;
+using WpfBDLab2.Windows.PublHouses;
 
-namespace WpfBDLab2.VM.Forms {
-    class CitiesFormVM : BaseVM.BaseVM {
+namespace WpfBDLab2.VM.Forms.PublHouses {
+    class PublHousesFormVM : BaseVM.BaseVM {
         private ICommand _addCommand;
         private ICommand _editCommand;
         private ICommand _deleteCommand;
         private string _readAllString;
         private int _id;
 
-        public CitiesFormVM() {
-            Cities = new DataBase.Tables.Cities(new DBConnector());
+        public PublHousesFormVM() {
+            PublHouses = new DataBase.Tables.Publ_Houses(new DBConnector());
             readAllString();
             DbConnector = new DBConnector();
         }
 
-        public DataBase.Tables.Cities Cities { get; set; }
+        public DataBase.Tables.Publ_Houses PublHouses { get; set; }
 
         private void readAllString() {
             ReadAllString =
-                ListConvertor.ConvertToString(new TableBase().GetColumnNames(Cities, new DBConnector().DBConnection),
-                    " || "
+                ListConvertor.ConvertToString(
+                    new TableBase().GetColumnNames(PublHouses, new DBConnector().DBConnection), " || "
                 ) + "\n\n";
             ReadAllString +=
                 ListConvertor.ConvertToString(
-                    new TableBase().ReadAllRowsFromTable(Cities, new DBConnector().DBConnection, " || ")
+                    new TableBase().ReadAllRowsFromTable(PublHouses, new DBConnector().DBConnection, " || ")
                 );
         }
 
@@ -57,34 +56,35 @@ namespace WpfBDLab2.VM.Forms {
 
         public ICommand AddCommand =>
             _addCommand ??= new RelayCommand.RelayCommand((o) => {
-                    new CityAddWindow(Id,
-                        new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)
-                    ).ShowDialog();
-                    readAllString();
+                new PublHouseAddWindow(Id,
+                    new TableBase().FindByIdByColumn(Id, "house_name", PublHouses, DbConnector.DBConnection)
+                ).ShowDialog();
+                readAllString();
                 }
             );
 
         public ICommand EditCommand =>
             _editCommand ??= new RelayCommand.RelayCommand((o) => {
-                    if (new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == "") {
+                    if (new TableBase().FindByIdByColumn(Id, "id", PublHouses, DbConnector.DBConnection) == "") {
                         MessageBox.Show("Нет такого Id!");
                     }
                     else {
-                        new CityEditWindow(Id,
-                            new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)
-                        ).ShowDialog();
-                        readAllString();
+                    new PublHouseEditWindow(Id,
+                        new TableBase().FindByIdByColumn(Id, "house_name", PublHouses, DbConnector.DBConnection)
+                    ).ShowDialog();
+                    readAllString();
                     }
                 }
             );
 
         public ICommand DeleteCommand =>
             _deleteCommand ??= new RelayCommand.RelayCommand((o) => {
-                    MessageBox.Show(new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == ""
+                    MessageBox.Show(new TableBase().FindByIdByColumn(Id, "id", PublHouses, DbConnector.DBConnection)
+                                    == ""
                         ? "Нет такого Id!"
                         : "Запись удалена!"
                     );
-                    new TableBase().DeleteById(Id, new DataBase.Tables.Cities(), DbConnector.DBConnection);
+                    new TableBase().DeleteById(Id, new DataBase.Tables.Publ_Houses(), DbConnector.DBConnection);
                     readAllString();
                 }
             );

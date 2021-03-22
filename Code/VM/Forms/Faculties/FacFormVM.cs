@@ -7,35 +7,36 @@ using System.Windows;
 using System.Windows.Input;
 using WpfBDLab2.DataBase.DbConnector;
 using WpfBDLab2.DataBase.Father;
-using WpfBDLab2.DataBase.Tables;
 using WpfBDLab2.DataConvertor;
-using WpfBDLab2.VM.Forms.Cities;
-using WpfBDLab2.Windows.Cities;
+using WpfBDLab2.Windows.Authors;
+using WpfBDLab2.Windows.Faculties;
 
-namespace WpfBDLab2.VM.Forms {
-    class CitiesFormVM : BaseVM.BaseVM {
+namespace WpfBDLab2.VM.Forms.Faculties {
+    class FacFormVM : BaseVM.BaseVM {
         private ICommand _addCommand;
         private ICommand _editCommand;
         private ICommand _deleteCommand;
         private string _readAllString;
         private int _id;
+        private string _name;
+        private string _letter;
 
-        public CitiesFormVM() {
-            Cities = new DataBase.Tables.Cities(new DBConnector());
+        public FacFormVM() {
+            Facs = new DataBase.Tables.Facs(new DBConnector());
             readAllString();
             DbConnector = new DBConnector();
         }
 
-        public DataBase.Tables.Cities Cities { get; set; }
+        public DataBase.Tables.Facs Facs { get; set; }
 
         private void readAllString() {
             ReadAllString =
-                ListConvertor.ConvertToString(new TableBase().GetColumnNames(Cities, new DBConnector().DBConnection),
+                ListConvertor.ConvertToString(new TableBase().GetColumnNames(Facs, new DBConnector().DBConnection),
                     " || "
                 ) + "\n\n";
             ReadAllString +=
                 ListConvertor.ConvertToString(
-                    new TableBase().ReadAllRowsFromTable(Cities, new DBConnector().DBConnection, " || ")
+                    new TableBase().ReadAllRowsFromTable(Facs, new DBConnector().DBConnection, " || ")
                 );
         }
 
@@ -44,6 +45,22 @@ namespace WpfBDLab2.VM.Forms {
             set {
                 _id = value;
                 OnPropertyChanged(nameof(Id));
+            }
+        }
+
+        public string Name {
+            get => _name;
+            set {
+                _name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+        }
+
+        public string Letter {
+            get => _letter;
+            set {
+                _letter = value;
+                OnPropertyChanged(nameof(Letter));
             }
         }
 
@@ -57,8 +74,8 @@ namespace WpfBDLab2.VM.Forms {
 
         public ICommand AddCommand =>
             _addCommand ??= new RelayCommand.RelayCommand((o) => {
-                    new CityAddWindow(Id,
-                        new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)
+                    new FacAddWindow(Id, new TableBase().FindByIdByColumn(Id, "name", Facs, DbConnector.DBConnection),
+                        new TableBase().FindByIdByColumn(Id, "letter", Facs, DbConnector.DBConnection)
                     ).ShowDialog();
                     readAllString();
                 }
@@ -66,12 +83,13 @@ namespace WpfBDLab2.VM.Forms {
 
         public ICommand EditCommand =>
             _editCommand ??= new RelayCommand.RelayCommand((o) => {
-                    if (new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == "") {
+                    if (new TableBase().FindByIdByColumn(Id, "id", Facs, DbConnector.DBConnection) == "") {
                         MessageBox.Show("Нет такого Id!");
                     }
                     else {
-                        new CityEditWindow(Id,
-                            new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)
+                        new FacEditWindow(Id,
+                            new TableBase().FindByIdByColumn(Id, "name", Facs, DbConnector.DBConnection),
+                            new TableBase().FindByIdByColumn(Id, "letter", Facs, DbConnector.DBConnection)
                         ).ShowDialog();
                         readAllString();
                     }
@@ -80,11 +98,11 @@ namespace WpfBDLab2.VM.Forms {
 
         public ICommand DeleteCommand =>
             _deleteCommand ??= new RelayCommand.RelayCommand((o) => {
-                    MessageBox.Show(new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == ""
+                    MessageBox.Show(new TableBase().FindByIdByColumn(Id, "id", Facs, DbConnector.DBConnection) == ""
                         ? "Нет такого Id!"
                         : "Запись удалена!"
                     );
-                    new TableBase().DeleteById(Id, new DataBase.Tables.Cities(), DbConnector.DBConnection);
+                    new TableBase().DeleteById(Id, new DataBase.Tables.Facs(), DbConnector.DBConnection);
                     readAllString();
                 }
             );

@@ -54,13 +54,18 @@ namespace WpfBDLab2.DataBase.Tables
             return list;
         }
 
-        public void EditByID(int id, Books newElement) {
+        public bool EditByID(int id, Books newElement) {
             var dbConnection = _dbConnection;
+            if (!FindById(newElement.AuthorId, new Authors(), dbConnection) || !FindById(newElement.CityId, new Cities(), dbConnection)
+                                                                 || !FindById(newElement.PublHouseId, new Publ_Houses(),
+                                                                     dbConnection
+                                                                 )) return false;
             var sql =
                 $"update {GetType().Name.ToLower()} set id_author = '{newElement.AuthorId}', id_city = '{newElement.CityId}'"
                 + $", id_publ_house = '{newElement.PublHouseId}', year = '{newElement.Year}', code = '{newElement.Code}' where id = '{id}'";
             var command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
+            return true;
         }
 
         public bool DeleteByID(int id) {

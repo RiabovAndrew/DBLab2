@@ -1,14 +1,14 @@
-﻿<Window x:Class="WpfBDLab2.Windows.CitiesWindow"
+﻿<Window x:Class="WpfBDLab2.Windows.Books.BooksWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfBDLab2.Windows"
-        xmlns:forms="clr-namespace:WpfBDLab2.VM.Forms"
+        xmlns:local="clr-namespace:WpfBDLab2.Windows.Books"
+        xmlns:books="clr-namespace:WpfBDLab2.VM.Forms.Books"
         mc:Ignorable="d"
-        Title="CitiesWindow" Height="450" Width="800">
+        Title="BooksWindow" Height="450" Width="800">
     <Window.DataContext>
-        <forms:CitiesFormVM></forms:CitiesFormVM>
+        <books:BooksFormVM></books:BooksFormVM>
     </Window.DataContext>
     <Window.FontSize>20</Window.FontSize>
     <Grid>

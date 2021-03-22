@@ -64,6 +64,25 @@ namespace WpfBDLab2.DataBase.Father {
             return list;
         }
 
+        public List<string> ReadAllRowsFromTable(object table, SQLiteConnection openedDBConnection, string separator)
+        {
+            var dbConnection = openedDBConnection;
+            var sql = $"select * from {table.GetType().Name.ToLower()}";
+            var command = new SQLiteCommand(sql, dbConnection);
+            var reader = command.ExecuteReader();
+            var list = new List<string>();
+
+            while (reader.Read())
+            {
+                var str = GetColumnNames(table, dbConnection)
+                    .Aggregate("", (current, columnName) => current + reader[columnName] + separator);
+
+                list.Add(str);
+            }
+
+            return list;
+        }
+
         public List<string> GetColumnNames(object table, SQLiteConnection openedDBConnection) {
             var dbConnection = openedDBConnection;
             var tableCurrent = new DataTable(table.GetType().Name.ToLower());

@@ -15,15 +15,15 @@
             <MenuItem Header="Tables" Height="25">
                 <MenuItem Header="History"/>
                 <MenuItem Header="Cards"/>
-                <MenuItem Header="Books"/>
+                <MenuItem Header="Books" Command="{Binding OpenBooksTableCommand}"/>
                 <MenuItem Header="Students"/>
                 <MenuItem Header="Teachers"/>
-                <MenuItem Header="Specs"/>
-                <MenuItem Header="Facs"/>
+                <MenuItem Header="Specs" Command="{Binding OpenSpecTableCommand}"/>
+                <MenuItem Header="Facs" Command="{Binding OpenFacTableCommand}"/>
                 <MenuItem Header="SpecFac"/>
-                <MenuItem Header="PublHouses"/>
+                <MenuItem Header="PublHouses" Command="{Binding OpenPublHouseTableCommand}"/>
                 <MenuItem Header="Cities" Command="{Binding OpenCitiesTableCommand}"/>
-                <MenuItem Header="Authors"/>
+                <MenuItem Header="Authors" Command="{Binding OpenAuthorsTableCommand}"/>
             </MenuItem>
         </Menu>
     </Grid>
