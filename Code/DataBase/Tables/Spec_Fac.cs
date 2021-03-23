@@ -38,7 +38,7 @@ namespace WpfBDLab2.DataBase.Tables
             return true;
         }
 
-        public void Insert() { InsertByParams(IdSpec, IdFac); }
+        public bool Insert() { return InsertByParams(IdSpec, IdFac); }
 
         public List<string> Read(string columnName) {
             var dbConnection = _dbConnection;
@@ -46,12 +46,14 @@ namespace WpfBDLab2.DataBase.Tables
             return list;
         }
 
-        public void EditByID(int id, Spec_Fac newElement) {
+        public bool EditByID(int id, Spec_Fac newElement) {
             var dbConnection = _dbConnection;
+            if (!FindById(newElement.IdSpec, new Specs(), dbConnection) || !FindById(newElement.IdFac, new Facs(), dbConnection)) return false;
             var sql =
                 $"update {GetType().Name.ToLower()} set id_specs = '{newElement.IdSpec}', id_facs = '{newElement.IdFac}' where id = '{id}'";
             var command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
+            return true;
         }
 
         public bool DeleteByID(int id) {

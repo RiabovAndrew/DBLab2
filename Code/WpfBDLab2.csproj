@@ -111,9 +111,15 @@
     <Compile Include="VM\Forms\PublHouses\PublHouseAddFormVM.cs" />
     <Compile Include="VM\Forms\PublHouses\PublHouseEditFormVM.cs" />
     <Compile Include="VM\Forms\PublHouses\PublHousesFormVM.cs" />
+    <Compile Include="VM\Forms\SpecFac\SpecFacAddFormVM.cs" />
+    <Compile Include="VM\Forms\SpecFac\SpecFacEditFormVM.cs" />
+    <Compile Include="VM\Forms\SpecFac\SpecFacFormVM.cs" />
     <Compile Include="VM\Forms\Specs\SpecAddFormVM.cs" />
     <Compile Include="VM\Forms\Specs\SpecsEditFormVM.cs" />
     <Compile Include="VM\Forms\Specs\SpecsFormVM.cs" />
+    <Compile Include="VM\Forms\Teachers\TeacherAddFormVM.cs" />
+    <Compile Include="VM\Forms\Teachers\TeachersEditFormVM.cs" />
+    <Compile Include="VM\Forms\Teachers\TeachersFormVM.cs" />
     <Compile Include="VM\RelayCommand\RelayCommand.cs" />
     <Compile Include="Windows\Authors\AuthorAddWindow.xaml.cs">
       <DependentUpon>AuthorAddWindow.xaml</DependentUpon>
@@ -160,6 +166,15 @@
     <Compile Include="Windows\PublHouses\PublHousesWindow.xaml.cs">
       <DependentUpon>PublHousesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SpecFac\SpecFacAddWindow.xaml.cs">
+      <DependentUpon>SpecFacAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SpecFac\SpecFacEditWindow.xaml.cs">
+      <DependentUpon>SpecFacEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SpecFac\SpecFacWindow.xaml.cs">
+      <DependentUpon>SpecFacWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Specs\SpecAddWindow.xaml.cs">
       <DependentUpon>SpecAddWindow.xaml</DependentUpon>
     </Compile>
@@ -168,6 +183,15 @@
     </Compile>
     <Compile Include="Windows\Specs\SpecsWindow.xaml.cs">
       <DependentUpon>SpecsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teachers\TeacherAddWindow.xaml.cs">
+      <DependentUpon>TeacherAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teachers\TeacherEditWindow.xaml.cs">
+      <DependentUpon>TeacherEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teachers\TeachersWindow.xaml.cs">
+      <DependentUpon>TeachersWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -241,6 +265,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\SpecFac\SpecFacAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SpecFac\SpecFacEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SpecFac\SpecFacWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Specs\SpecAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,6 +286,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Specs\SpecsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teachers\TeacherAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teachers\TeacherEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teachers\TeachersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

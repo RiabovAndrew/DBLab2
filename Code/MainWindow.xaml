@@ -17,10 +17,10 @@
                 <MenuItem Header="Cards"/>
                 <MenuItem Header="Books" Command="{Binding OpenBooksTableCommand}"/>
                 <MenuItem Header="Students"/>
-                <MenuItem Header="Teachers"/>
+                <MenuItem Header="Teachers" Command="{Binding OpenTeachersTableCommand}"/>
                 <MenuItem Header="Specs" Command="{Binding OpenSpecTableCommand}"/>
                 <MenuItem Header="Facs" Command="{Binding OpenFacTableCommand}"/>
-                <MenuItem Header="SpecFac"/>
+                <MenuItem Header="SpecFac" Command="{Binding OpenSpecFacTableCommand}"/>
                 <MenuItem Header="PublHouses" Command="{Binding OpenPublHouseTableCommand}"/>
                 <MenuItem Header="Cities" Command="{Binding OpenCitiesTableCommand}"/>
                 <MenuItem Header="Authors" Command="{Binding OpenAuthorsTableCommand}"/>
