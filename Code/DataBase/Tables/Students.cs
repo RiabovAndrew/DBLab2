@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using WpfBDLab2.DataBase.DbConnector;
 using WpfBDLab2.DataBase.Father;
 
-namespace WpfBDLab2.DataBase.Tables
-{
+namespace WpfBDLab2.DataBase.Tables {
     class Students : TableBase {
         private readonly SQLiteConnection _dbConnection;
 
@@ -16,8 +15,7 @@ namespace WpfBDLab2.DataBase.Tables
         public Students(DBConnector dbConnection) : this(dbConnection, "", 0, 0) { }
 
         public Students(DBConnector dbConnection, string name, int idSpecFac, int year) {
-            _dbConnection = dbConnection?.DBConnection
-                            ?? new DBConnector("Data Source=.\\history.db").DBConnection;
+            _dbConnection = dbConnection?.DBConnection ?? new DBConnector("Data Source=.\\history.db").DBConnection;
             Name = name;
             IdSpecFac = idSpecFac;
             Year = year;
@@ -40,7 +38,7 @@ namespace WpfBDLab2.DataBase.Tables
             return true;
         }
 
-        public void Insert() { InsertByParams(Name, IdSpecFac, Year); }
+        public bool Insert() { return InsertByParams(Name, IdSpecFac, Year); }
 
         public List<string> Read(string columnName) {
             var dbConnection = _dbConnection;
@@ -48,13 +46,14 @@ namespace WpfBDLab2.DataBase.Tables
             return list;
         }
 
-        public void EditByID(int id, Students newElement) {
+        public bool EditByID(int id, Students newElement) {
             var dbConnection = _dbConnection;
+            if (!FindById(newElement.IdSpecFac, new Spec_Fac(), dbConnection)) return false;
             var sql =
-                $"update {GetType().Name.ToLower()} set name = '{newElement.Name}', id_spec_fac = '{newElement.IdSpecFac}',"
-                + $"year = '{newElement.Year} where id = '{id}'";
+                $"update {GetType().Name.ToLower()} set name = '{newElement.Name}', id_spec_fac = '{newElement.IdSpecFac}', year = '{newElement.Year}' where id = '{id}'";
             var command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
+            return true;
         }
 
         public bool DeleteByID(int id) {

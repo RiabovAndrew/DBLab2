@@ -117,6 +117,9 @@
     <Compile Include="VM\Forms\Specs\SpecAddFormVM.cs" />
     <Compile Include="VM\Forms\Specs\SpecsEditFormVM.cs" />
     <Compile Include="VM\Forms\Specs\SpecsFormVM.cs" />
+    <Compile Include="VM\Forms\Students\StudentAddForm.cs" />
+    <Compile Include="VM\Forms\Students\StudentEditFormVM.cs" />
+    <Compile Include="VM\Forms\Students\StudentsFormVM.cs" />
     <Compile Include="VM\Forms\Teachers\TeacherAddFormVM.cs" />
     <Compile Include="VM\Forms\Teachers\TeachersEditFormVM.cs" />
     <Compile Include="VM\Forms\Teachers\TeachersFormVM.cs" />
@@ -183,6 +186,15 @@
     </Compile>
     <Compile Include="Windows\Specs\SpecsWindow.xaml.cs">
       <DependentUpon>SpecsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Students\StudentAddWindow.xaml.cs">
+      <DependentUpon>StudentAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Students\StudentEditWindow.xaml.cs">
+      <DependentUpon>StudentEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Students\StudentsWindow.xaml.cs">
+      <DependentUpon>StudentsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Teachers\TeacherAddWindow.xaml.cs">
       <DependentUpon>TeacherAddWindow.xaml</DependentUpon>
@@ -286,6 +298,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Specs\SpecsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Students\StudentAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Students\StudentEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Students\StudentsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

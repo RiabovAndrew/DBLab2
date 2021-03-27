@@ -15,6 +15,7 @@ using WpfBDLab2.Windows.Faculties;
 using WpfBDLab2.Windows.PublHouses;
 using WpfBDLab2.Windows.SpecFac;
 using WpfBDLab2.Windows.Specs;
+using WpfBDLab2.Windows.Students;
 using WpfBDLab2.Windows.Teachers;
 
 namespace WpfBDLab2.VM.MainFormVM
@@ -28,6 +29,7 @@ namespace WpfBDLab2.VM.MainFormVM
         private ICommand _openSpecTableCommand;
         private ICommand _openSpecFacTableCommand;
         private ICommand _openTeachersTableCommand;
+        private ICommand _openStudentsTableCommand;
 
         public ICommand OpenCitiesTableCommand =>
             _openCitiesTableCommand ??= new RelayCommand.RelayCommand((o) => {
@@ -67,6 +69,11 @@ namespace WpfBDLab2.VM.MainFormVM
         public ICommand OpenTeachersTableCommand =>
             _openTeachersTableCommand ??= new RelayCommand.RelayCommand((o) => {
                 new TeachersWindow().Show();
+            });
+
+        public ICommand OpenStudentsTableCommand =>
+            _openStudentsTableCommand ??= new RelayCommand.RelayCommand((o) => {
+                new StudentsWindow().Show();
             });
     }
 }

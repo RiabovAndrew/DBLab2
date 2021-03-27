@@ -16,7 +16,7 @@
                 <MenuItem Header="History"/>
                 <MenuItem Header="Cards"/>
                 <MenuItem Header="Books" Command="{Binding OpenBooksTableCommand}"/>
-                <MenuItem Header="Students"/>
+                <MenuItem Header="Students" Command="{Binding OpenStudentsTableCommand}"/>
                 <MenuItem Header="Teachers" Command="{Binding OpenTeachersTableCommand}"/>
                 <MenuItem Header="Specs" Command="{Binding OpenSpecTableCommand}"/>
                 <MenuItem Header="Facs" Command="{Binding OpenFacTableCommand}"/>
