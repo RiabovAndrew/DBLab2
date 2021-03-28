@@ -47,7 +47,7 @@ namespace WpfBDLab2.DataBase.Tables
             return true;
         }
 
-        public void Insert() { InsertByParams(IdCard, IdBook, DateGiven, DateGivenUntill, Worker); }
+        public bool Insert() { return InsertByParams(IdCard, IdBook, DateGiven, DateGivenUntill, Worker); }
 
         public List<string> Read(string columnName) {
             var dbConnection = _dbConnection;
@@ -62,13 +62,16 @@ namespace WpfBDLab2.DataBase.Tables
             return list;
         }
 
-        public void EditByID(int id, History newElement) {
+        public bool EditByID(int id, History newElement) {
             var dbConnection = _dbConnection;
+            if (!FindById(newElement.IdCard, new Cards(), dbConnection) || !FindById(newElement.IdBook, new Books(), dbConnection))
+                return false;
             var sql =
                 $"update {GetType().Name.ToLower()} set id_card = '{newElement.IdCard}', id_book = '{newElement.IdBook}',"
                 + $" date_given = '{newElement.DateGiven}', date_given_untill = '{newElement.DateGivenUntill}', worker = '{newElement.Worker}' where id = '{id}'";
             var command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
+            return true;
         }
 
         public bool DeleteByID(int id) {

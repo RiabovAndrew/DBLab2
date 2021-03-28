@@ -110,6 +110,9 @@
     <Compile Include="VM\Forms\Faculties\FacAddFormVM.cs" />
     <Compile Include="VM\Forms\Faculties\FacEditFormVM.cs" />
     <Compile Include="VM\Forms\Faculties\FacFormVM.cs" />
+    <Compile Include="VM\Forms\History\HistoriesFormVM.cs" />
+    <Compile Include="VM\Forms\History\HistoryAddFormVM.cs" />
+    <Compile Include="VM\Forms\History\HistoryEditFormVM.cs" />
     <Compile Include="VM\Forms\MainFormVM\MainFormVM.cs" />
     <Compile Include="VM\Forms\PublHouses\PublHouseAddFormVM.cs" />
     <Compile Include="VM\Forms\PublHouses\PublHouseEditFormVM.cs" />
@@ -177,6 +180,15 @@
     </Compile>
     <Compile Include="Windows\Faculties\FacsWindow.xaml.cs">
       <DependentUpon>FacsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\History\HistoryAddWindow.xaml.cs">
+      <DependentUpon>HistoryAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\History\HistoryEditWindiw.xaml.cs">
+      <DependentUpon>HistoryEditWindiw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\History\HistoryWindow.xaml.cs">
+      <DependentUpon>HistoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PublHouses\PublHouseAddWindow.xaml.cs">
       <DependentUpon>PublHouseAddWindow.xaml</DependentUpon>
@@ -300,6 +312,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Faculties\FacsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\History\HistoryAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\History\HistoryEditWindiw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\History\HistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
