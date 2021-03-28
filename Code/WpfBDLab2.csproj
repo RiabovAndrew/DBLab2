@@ -95,11 +95,74 @@
     <Compile Include="DataConvertor\ListConvertor.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="VM\BaseVM\BaseVM.cs" />
+    <Compile Include="VM\Forms\Authors\AuthorAddFormVM.cs" />
+    <Compile Include="VM\Forms\Authors\AuthorEditFormVM.cs" />
+    <Compile Include="VM\Forms\Authors\AuthorsFormVM.cs" />
+    <Compile Include="VM\Forms\Books\BookAddFormVm.cs" />
+    <Compile Include="VM\Forms\Books\BookEditFormVM.cs" />
+    <Compile Include="VM\Forms\Books\BooksFormVM.cs" />
+    <Compile Include="VM\Forms\Cards\CardAddFormVM.cs" />
+    <Compile Include="VM\Forms\Cards\CardEditFormVM.cs" />
+    <Compile Include="VM\Forms\Cards\CardsFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CitiesFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CityAddFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CityEditFormVM.cs" />
-    <Compile Include="VM\MainFormVM\MainFormVM.cs" />
+    <Compile Include="VM\Forms\Faculties\FacAddFormVM.cs" />
+    <Compile Include="VM\Forms\Faculties\FacEditFormVM.cs" />
+    <Compile Include="VM\Forms\Faculties\FacFormVM.cs" />
+    <Compile Include="VM\Forms\History\HistoriesFormVM.cs" />
+    <Compile Include="VM\Forms\History\HistoryAddFormVM.cs" />
+    <Compile Include="VM\Forms\History\HistoryEditFormVM.cs" />
+    <Compile Include="VM\Forms\MainFormVM\MainFormVM.cs" />
+    <Compile Include="VM\Forms\PublHouses\PublHouseAddFormVM.cs" />
+    <Compile Include="VM\Forms\PublHouses\PublHouseEditFormVM.cs" />
+    <Compile Include="VM\Forms\PublHouses\PublHousesFormVM.cs" />
+    <Compile Include="VM\Forms\SpecFac\SpecFacAddFormVM.cs" />
+    <Compile Include="VM\Forms\SpecFac\SpecFacEditFormVM.cs" />
+    <Compile Include="VM\Forms\SpecFac\SpecFacFormVM.cs" />
+    <Compile Include="VM\Forms\Specs\SpecAddFormVM.cs" />
+    <Compile Include="VM\Forms\Specs\SpecsEditFormVM.cs" />
+    <Compile Include="VM\Forms\Specs\SpecsFormVM.cs" />
+    <Compile Include="VM\Forms\Students\StudentAddForm.cs" />
+    <Compile Include="VM\Forms\Students\StudentEditFormVM.cs" />
+    <Compile Include="VM\Forms\Students\StudentsFormVM.cs" />
+    <Compile Include="VM\Forms\Teachers\TeacherAddFormVM.cs" />
+    <Compile Include="VM\Forms\Teachers\TeachersEditFormVM.cs" />
+    <Compile Include="VM\Forms\Teachers\TeachersFormVM.cs" />
     <Compile Include="VM\RelayCommand\RelayCommand.cs" />
+    <Compile Include="Windows\Authors\AuthorAddWindow.xaml.cs">
+      <DependentUpon>AuthorAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Authors\AuthorEditWindow.xaml.cs">
+      <DependentUpon>AuthorEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Authors\AuthorWindow.xaml.cs">
+      <DependentUpon>AuthorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Books\BookAddWindow.xaml.cs">
+      <DependentUpon>BookAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Books\BookEditWindow.xaml.cs">
+      <DependentUpon>BookEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Books\BooksWindow.xaml.cs">
+      <DependentUpon>BooksWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardAddStudentWindow.xaml.cs">
+      <DependentUpon>CardAddStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardAddTeacherWindow.xaml.cs">
+      <DependentUpon>CardAddTeacherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardEditStudentWindow.xaml.cs">
+      <DependentUpon>CardEditStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardEditTeacherWindow.xaml.cs">
+      <DependentUpon>CardEditTeacherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardsWindow.xaml.cs">
+      <DependentUpon>CardsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Cities\CitiesWindow.xaml.cs">
       <DependentUpon>CitiesWindow.xaml</DependentUpon>
     </Compile>
@@ -108,6 +171,69 @@
     </Compile>
     <Compile Include="Windows\Cities\CityEditWindow.xaml.cs">
       <DependentUpon>CityEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Faculties\FacAddWindow.xaml.cs">
+      <DependentUpon>FacAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Faculties\FacEditWindow.xaml.cs">
+      <DependentUpon>FacEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Faculties\FacsWindow.xaml.cs">
+      <DependentUpon>FacsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\History\HistoryAddWindow.xaml.cs">
+      <DependentUpon>HistoryAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\History\HistoryEditWindiw.xaml.cs">
+      <DependentUpon>HistoryEditWindiw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\History\HistoryWindow.xaml.cs">
+      <DependentUpon>HistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PublHouses\PublHouseAddWindow.xaml.cs">
+      <DependentUpon>PublHouseAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PublHouses\PublHouseEditWindow.xaml.cs">
+      <DependentUpon>PublHouseEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PublHouses\PublHousesWindow.xaml.cs">
+      <DependentUpon>PublHousesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SpecFac\SpecFacAddWindow.xaml.cs">
+      <DependentUpon>SpecFacAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SpecFac\SpecFacEditWindow.xaml.cs">
+      <DependentUpon>SpecFacEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SpecFac\SpecFacWindow.xaml.cs">
+      <DependentUpon>SpecFacWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Specs\SpecAddWindow.xaml.cs">
+      <DependentUpon>SpecAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Specs\SpecEditWindow.xaml.cs">
+      <DependentUpon>SpecEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Specs\SpecsWindow.xaml.cs">
+      <DependentUpon>SpecsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Students\StudentAddWindow.xaml.cs">
+      <DependentUpon>StudentAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Students\StudentEditWindow.xaml.cs">
+      <DependentUpon>StudentEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Students\StudentsWindow.xaml.cs">
+      <DependentUpon>StudentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teachers\TeacherAddWindow.xaml.cs">
+      <DependentUpon>TeacherAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teachers\TeacherEditWindow.xaml.cs">
+      <DependentUpon>TeacherEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teachers\TeachersWindow.xaml.cs">
+      <DependentUpon>TeachersWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +247,50 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\Authors\AuthorAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Authors\AuthorEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Authors\AuthorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Books\BookAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Books\BookEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Books\BooksWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardAddStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardAddTeacherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardEditStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardEditTeacherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Cities\CitiesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +300,90 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Cities\CityEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Faculties\FacAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Faculties\FacEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Faculties\FacsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\History\HistoryAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\History\HistoryEditWindiw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\History\HistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PublHouses\PublHouseAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PublHouses\PublHouseEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PublHouses\PublHousesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SpecFac\SpecFacAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SpecFac\SpecFacEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SpecFac\SpecFacWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Specs\SpecAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Specs\SpecEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Specs\SpecsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Students\StudentAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Students\StudentEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Students\StudentsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teachers\TeacherAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teachers\TeacherEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teachers\TeachersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

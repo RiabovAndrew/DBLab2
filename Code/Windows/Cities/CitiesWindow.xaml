@@ -31,22 +31,6 @@
         <TextBlock Text="Выберите id для Изменения или Удаления:" TextAlignment="Center" FontSize="20" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
         <TextBox Text="{Binding Id}" TextAlignment="Center" Grid.Column="3" Grid.Row="3" />
 
-        <Menu Height="25" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="5">
-            <MenuItem Header="Tables" Height="25">
-                <MenuItem Header="History"/>
-                <MenuItem Header="Cards"/>
-                <MenuItem Header="Books"/>
-                <MenuItem Header="Students"/>
-                <MenuItem Header="Teachers"/>
-                <MenuItem Header="Specs"/>
-                <MenuItem Header="Facs"/>
-                <MenuItem Header="SpecFac"/>
-                <MenuItem Header="PublHouses"/>
-                <MenuItem Header="Cities"/>
-                <MenuItem Header="Authors"/>
-            </MenuItem>
-        </Menu>
-
         <Button Command="{Binding AddCommand}" Content="Добавить" Grid.Column="1" Grid.Row="4" Margin="20"></Button>
         <Button Command="{Binding EditCommand}" Content="Изменить" Grid.Column="2" Grid.Row="4" Margin="20"></Button>
         <Button Command="{Binding DeleteCommand}" Content="Удалить" Grid.Column="3" Grid.Row="4" Margin="20"></Button>

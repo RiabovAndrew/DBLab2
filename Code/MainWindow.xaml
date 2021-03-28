@@ -10,21 +10,48 @@
     <Window.DataContext>
         <mainFormVm:MainFormVM></mainFormVm:MainFormVM>
     </Window.DataContext>
+    <Window.FontSize>20</Window.FontSize>
     <Grid>
-        <Menu Height="25" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="35" />
+        </Grid.ColumnDefinitions>
+        <!--<Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Tables" Height="25">
-                <MenuItem Header="History"/>
-                <MenuItem Header="Cards"/>
-                <MenuItem Header="Books"/>
-                <MenuItem Header="Students"/>
-                <MenuItem Header="Teachers"/>
-                <MenuItem Header="Specs"/>
-                <MenuItem Header="Facs"/>
-                <MenuItem Header="SpecFac"/>
-                <MenuItem Header="PublHouses"/>
+                <MenuItem Header="History" Command="{Binding OpenHistoryTableCommand}"/>
+                <MenuItem Header="Cards" Command="{Binding OpenCardsTableCommand}"/>
+                <MenuItem Header="Books" Command="{Binding OpenBooksTableCommand}"/>
+                <MenuItem Header="Students" Command="{Binding OpenStudentsTableCommand}"/>
+                <MenuItem Header="Teachers" Command="{Binding OpenTeachersTableCommand}"/>
+                <MenuItem Header="Specs" Command="{Binding OpenSpecTableCommand}"/>
+                <MenuItem Header="Facs" Command="{Binding OpenFacTableCommand}"/>
+                <MenuItem Header="SpecFac" Command="{Binding OpenSpecFacTableCommand}"/>
+                <MenuItem Header="PublHouses" Command="{Binding OpenPublHouseTableCommand}"/>
                 <MenuItem Header="Cities" Command="{Binding OpenCitiesTableCommand}"/>
-                <MenuItem Header="Authors"/>
+                <MenuItem Header="Authors" Command="{Binding OpenAuthorsTableCommand}"/>
             </MenuItem>
-        </Menu>
+        </Menu>-->
+        <Button Command="{Binding OpenHistoryTableCommand}" Content="Все записи" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" Margin="20"></Button>
+        <Button Command="{Binding OpenCardsTableCommand}" Content="Карточки" Grid.Column="3" Grid.Row="1" Margin="20"></Button>
+        <Button Command="{Binding OpenBooksTableCommand}" Content="Книги" Grid.Column="1" Grid.Row="2" Margin="20"></Button>
+        <Button Command="{Binding OpenStudentsTableCommand}" Content="Студенты" Grid.Column="2" Grid.Row="2" Margin="20"></Button>
+        <Button Command="{Binding OpenTeachersTableCommand}" Content="Преподаватели" Grid.Column="3" Grid.Row="2" Margin="20"></Button>
+        <Button Command="{Binding OpenSpecFacTableCommand}" FontSize="15" Content="Специальность-факультет" Grid.Column="1" Grid.Row="3" Margin="20"></Button>
+        <Button Command="{Binding OpenFacTableCommand}" Content="Факультеты" Grid.Column="2" Grid.Row="3" Margin="20"></Button>
+        <Button Command="{Binding OpenSpecTableCommand}" Content="Специальности" Grid.Column="3" Grid.Row="3" Margin="20"></Button>
+        <Button Command="{Binding OpenAuthorsTableCommand}" Content="Авторы" Grid.Column="1" Grid.Row="4" Margin="20"></Button>
+        <Button Command="{Binding OpenCitiesTableCommand}" Content="Города" Grid.Column="2" Grid.Row="4" Margin="20"></Button>
+        <Button Command="{Binding OpenPublHouseTableCommand}" Content="Издательство" Grid.Column="3" Grid.Row="4" Margin="20"></Button>
     </Grid>
 </Window>

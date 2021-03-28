@@ -12,8 +12,7 @@ using WpfBDLab2.DataConvertor;
 using WpfBDLab2.VM.Forms.Cities;
 using WpfBDLab2.Windows.Cities;
 
-namespace WpfBDLab2.VM.Forms
-{
+namespace WpfBDLab2.VM.Forms {
     class CitiesFormVM : BaseVM.BaseVM {
         private ICommand _addCommand;
         private ICommand _editCommand;
@@ -31,8 +30,13 @@ namespace WpfBDLab2.VM.Forms
 
         private void readAllString() {
             ReadAllString =
-                ListConvertor.ConvertToString(new TableBase().GetColumnNames(Cities, new DBConnector().DBConnection), "\t") + "\n\n";
-            ReadAllString += ListConvertor.ConvertToString(new TableBase().ReadAllRowsFromTable(Cities, new DBConnector().DBConnection));
+                ListConvertor.ConvertToString(new TableBase().GetColumnNames(Cities, new DBConnector().DBConnection),
+                    " || "
+                ) + "\n\n";
+            ReadAllString +=
+                ListConvertor.ConvertToString(
+                    new TableBase().ReadAllRowsFromTable(Cities, new DBConnector().DBConnection, " || ")
+                );
         }
 
         public int Id {
@@ -50,28 +54,39 @@ namespace WpfBDLab2.VM.Forms
                 OnPropertyChanged(nameof(ReadAllString));
             }
         }
-        public ICommand AddCommand => _addCommand ??= new RelayCommand.RelayCommand((o) => {
-            new CityAddWindow(Id, new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)).ShowDialog();
-            readAllString();
-        });
 
-        public ICommand EditCommand => _editCommand ??= new RelayCommand.RelayCommand((o) => {
-            if (new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == "") {
-                MessageBox.Show("Нет такого Id!");
-            }
-            else {
-                new CityEditWindow(Id, new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)).ShowDialog();
-                readAllString();
-            }
-        });
-
-        public ICommand DeleteCommand => _deleteCommand ??= new RelayCommand.RelayCommand((o) => {
-            MessageBox.Show(new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == ""
-                ? "Нет такого Id!"
-                : "Запись удалена!"
+        public ICommand AddCommand =>
+            _addCommand ??= new RelayCommand.RelayCommand((o) => {
+                    new CityAddWindow(Id,
+                        new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)
+                    ).ShowDialog();
+                    readAllString();
+                }
             );
-            new TableBase().DeleteById(Id, new DataBase.Tables.Cities(), DbConnector.DBConnection);
-            readAllString();
-        });
+
+        public ICommand EditCommand =>
+            _editCommand ??= new RelayCommand.RelayCommand((o) => {
+                    if (new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == "") {
+                        MessageBox.Show("Нет такого Id!");
+                    }
+                    else {
+                        new CityEditWindow(Id,
+                            new TableBase().FindByIdByColumn(Id, "city_name", Cities, DbConnector.DBConnection)
+                        ).ShowDialog();
+                        readAllString();
+                    }
+                }
+            );
+
+        public ICommand DeleteCommand =>
+            _deleteCommand ??= new RelayCommand.RelayCommand((o) => {
+                    MessageBox.Show(new TableBase().FindByIdByColumn(Id, "id", Cities, DbConnector.DBConnection) == ""
+                        ? "Нет такого Id!"
+                        : "Запись удалена!"
+                    );
+                    new TableBase().DeleteById(Id, new DataBase.Tables.Cities(), DbConnector.DBConnection);
+                    readAllString();
+                }
+            );
     }
 }
