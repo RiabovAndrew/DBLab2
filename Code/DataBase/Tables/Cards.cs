@@ -43,7 +43,7 @@ namespace WpfBDLab2.DataBase.Tables
             return true;
         }
 
-        public void InsertStudent() { InsertByStudentParams(DateGiven, Code, IdStudent); }
+        public bool InsertStudent() { return InsertByStudentParams(DateGiven, Code, IdStudent); }
 
         public bool InsertByTeacherParams(string dateGiven, int code, int idTeacher) {
             var dbConnection = _dbConnection;
@@ -57,7 +57,7 @@ namespace WpfBDLab2.DataBase.Tables
             return true;
         }
 
-        public void InsertTeacher() { InsertByTeacherParams(DateGiven, Code, IdTeacher); }
+        public bool InsertTeacher() { return InsertByTeacherParams(DateGiven, Code, IdTeacher); }
 
         public List<string> Read(string columnName) {
             var dbConnection = _dbConnection;
@@ -72,6 +72,29 @@ namespace WpfBDLab2.DataBase.Tables
                 + $"date_given = '{newElement.DateGiven}', code = '{newElement.Code}' where id = '{id}'";
             var command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
+        }
+
+        public bool EditStudentById(int id, Cards newElement) {
+            var dbConnection = _dbConnection;
+            if (!FindById(newElement.IdStudent, new Students(), _dbConnection)) return false;
+                var sql =
+                $"update {GetType().Name.ToLower()} set id_student = '{newElement.IdStudent}', id_teacher = '{newElement.IdTeacher}', "
+                + $"date_given = '{newElement.DateGiven}', code = '{newElement.Code}' where id = '{id}'";
+            var command = new SQLiteCommand(sql, dbConnection);
+            command.ExecuteNonQuery();
+            return true;
+        }
+
+        public bool EditTeacherById(int id, Cards newElement)
+        {
+            var dbConnection = _dbConnection;
+            if (!FindById(newElement.IdTeacher, new Teachers(), _dbConnection)) return false;
+            var sql =
+                $"update {GetType().Name.ToLower()} set id_student = '{newElement.IdStudent}', id_teacher = '{newElement.IdTeacher}', "
+                + $"date_given = '{newElement.DateGiven}', code = '{newElement.Code}' where id = '{id}'";
+            var command = new SQLiteCommand(sql, dbConnection);
+            command.ExecuteNonQuery();
+            return true;
         }
 
         public bool DeleteByID(int id) {

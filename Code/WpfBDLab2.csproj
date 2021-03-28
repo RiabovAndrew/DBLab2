@@ -101,6 +101,9 @@
     <Compile Include="VM\Forms\Books\BookAddFormVm.cs" />
     <Compile Include="VM\Forms\Books\BookEditFormVM.cs" />
     <Compile Include="VM\Forms\Books\BooksFormVM.cs" />
+    <Compile Include="VM\Forms\Cards\CardAddFormVM.cs" />
+    <Compile Include="VM\Forms\Cards\CardEditFormVM.cs" />
+    <Compile Include="VM\Forms\Cards\CardsFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CitiesFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CityAddFormVM.cs" />
     <Compile Include="VM\Forms\Cities\CityEditFormVM.cs" />
@@ -141,6 +144,21 @@
     </Compile>
     <Compile Include="Windows\Books\BooksWindow.xaml.cs">
       <DependentUpon>BooksWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardAddStudentWindow.xaml.cs">
+      <DependentUpon>CardAddStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardAddTeacherWindow.xaml.cs">
+      <DependentUpon>CardAddTeacherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardEditStudentWindow.xaml.cs">
+      <DependentUpon>CardEditStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardEditTeacherWindow.xaml.cs">
+      <DependentUpon>CardEditTeacherWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Cards\CardsWindow.xaml.cs">
+      <DependentUpon>CardsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Cities\CitiesWindow.xaml.cs">
       <DependentUpon>CitiesWindow.xaml</DependentUpon>
@@ -238,6 +256,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Books\BooksWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardAddStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardAddTeacherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardEditStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardEditTeacherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Cards\CardsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,8 +17,7 @@ namespace WpfBDLab2.DataBase.Father {
             return result;
         }
 
-        public string FindByIdByColumn(int id, string columnName, object table, SQLiteConnection openedDBConnection)
-        {
+        public string FindByIdByColumn(int id, string columnName, object table, SQLiteConnection openedDBConnection) {
             var dbConnection = openedDBConnection;
             var sql = $"select {columnName} from {table.GetType().Name.ToLower()} where id = {id}";
             var command = new SQLiteCommand(sql, dbConnection);
@@ -64,18 +63,17 @@ namespace WpfBDLab2.DataBase.Father {
             return list;
         }
 
-        public List<string> ReadAllRowsFromTable(object table, SQLiteConnection openedDBConnection, string separator)
-        {
+        public List<string> ReadAllRowsFromTable(object table, SQLiteConnection openedDBConnection, string separator) {
             var dbConnection = openedDBConnection;
             var sql = $"select * from {table.GetType().Name.ToLower()}";
             var command = new SQLiteCommand(sql, dbConnection);
             var reader = command.ExecuteReader();
             var list = new List<string>();
 
-            while (reader.Read())
-            {
-                var str = GetColumnNames(table, dbConnection)
-                    .Aggregate("", (current, columnName) => current + reader[columnName] + separator);
+            while (reader.Read()) {
+                var str = GetColumnNames(table, dbConnection).Aggregate("",
+                    (current, columnName) => current + reader[columnName] + separator
+                );
 
                 list.Add(str);
             }

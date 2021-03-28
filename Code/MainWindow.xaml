@@ -14,7 +14,7 @@
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Tables" Height="25">
                 <MenuItem Header="History"/>
-                <MenuItem Header="Cards"/>
+                <MenuItem Header="Cards" Command="{Binding OpenCardsTableCommand}"/>
                 <MenuItem Header="Books" Command="{Binding OpenBooksTableCommand}"/>
                 <MenuItem Header="Students" Command="{Binding OpenStudentsTableCommand}"/>
                 <MenuItem Header="Teachers" Command="{Binding OpenTeachersTableCommand}"/>
