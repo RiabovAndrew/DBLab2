@@ -94,7 +94,8 @@ namespace WpfBDLab2.VM.Forms.Cards {
         public ICommand AddStudentCommand =>
             _addStudentCommand ??= new RelayCommand.RelayCommand((o) => {
                     if (new TableBase().FindByIdByColumn(Id, "id_teacher", Cards, DbConnector.DBConnection) != ""
-                        && new TableBase().FindByIdByColumn(Id, "id_teacher", Cards, DbConnector.DBConnection) == "0") {
+                        && new TableBase().FindByIdByColumn(Id, "id_teacher", Cards, DbConnector.DBConnection) == "0"
+                        || new TableBase().FindByIdByColumn(Id, "id_student", Cards, DbConnector.DBConnection) == "") {
                         new CardAddStudentWindow(Id,
                             Convert.ToInt32(
                                 new TableBase().FindByIdByColumn(Id, "id_student", Cards, DbConnector.DBConnection)
@@ -128,7 +129,8 @@ namespace WpfBDLab2.VM.Forms.Cards {
         public ICommand AddTeacherCommand =>
             _addTeacherCommand ??= new RelayCommand.RelayCommand((o) => {
                     if (new TableBase().FindByIdByColumn(Id, "id_student", Cards, DbConnector.DBConnection) != ""
-                        && new TableBase().FindByIdByColumn(Id, "id_student", Cards, DbConnector.DBConnection) == "0") {
+                        && new TableBase().FindByIdByColumn(Id, "id_student", Cards, DbConnector.DBConnection) == "0"
+                        || new TableBase().FindByIdByColumn(Id, "id_teacher", Cards, DbConnector.DBConnection) == "") {
                         new CardAddTeacherWindow(Id,
                             Convert.ToInt32(
                                 new TableBase().FindByIdByColumn(Id, "id_student", Cards, DbConnector.DBConnection)
