@@ -27,21 +27,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="35" />
         </Grid.ColumnDefinitions>
-        <!--<Menu Height="25" VerticalAlignment="Top">
-            <MenuItem Header="Tables" Height="25">
-                <MenuItem Header="History" Command="{Binding OpenHistoryTableCommand}"/>
-                <MenuItem Header="Cards" Command="{Binding OpenCardsTableCommand}"/>
-                <MenuItem Header="Books" Command="{Binding OpenBooksTableCommand}"/>
-                <MenuItem Header="Students" Command="{Binding OpenStudentsTableCommand}"/>
-                <MenuItem Header="Teachers" Command="{Binding OpenTeachersTableCommand}"/>
-                <MenuItem Header="Specs" Command="{Binding OpenSpecTableCommand}"/>
-                <MenuItem Header="Facs" Command="{Binding OpenFacTableCommand}"/>
-                <MenuItem Header="SpecFac" Command="{Binding OpenSpecFacTableCommand}"/>
-                <MenuItem Header="PublHouses" Command="{Binding OpenPublHouseTableCommand}"/>
-                <MenuItem Header="Cities" Command="{Binding OpenCitiesTableCommand}"/>
-                <MenuItem Header="Authors" Command="{Binding OpenAuthorsTableCommand}"/>
-            </MenuItem>
-        </Menu>-->
+
         <Button Command="{Binding OpenHistoryTableCommand}" Content="Все записи" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" Margin="20"></Button>
         <Button Command="{Binding OpenCardsTableCommand}" Content="Карточки" Grid.Column="3" Grid.Row="1" Margin="20"></Button>
         <Button Command="{Binding OpenBooksTableCommand}" Content="Книги" Grid.Column="1" Grid.Row="2" Margin="20"></Button>
