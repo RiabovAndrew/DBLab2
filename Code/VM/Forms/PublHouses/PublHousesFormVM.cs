@@ -56,10 +56,10 @@ namespace WpfBDLab2.VM.Forms.PublHouses {
 
         public ICommand AddCommand =>
             _addCommand ??= new RelayCommand.RelayCommand((o) => {
-                new PublHouseAddWindow(Id,
-                    new TableBase().FindByIdByColumn(Id, "house_name", PublHouses, DbConnector.DBConnection)
-                ).ShowDialog();
-                readAllString();
+                    new PublHouseAddWindow(Id,
+                        new TableBase().FindByIdByColumn(Id, "house_name", PublHouses, DbConnector.DBConnection)
+                    ).ShowDialog();
+                    readAllString();
                 }
             );
 
@@ -69,10 +69,10 @@ namespace WpfBDLab2.VM.Forms.PublHouses {
                         MessageBox.Show("Нет такого Id!");
                     }
                     else {
-                    new PublHouseEditWindow(Id,
-                        new TableBase().FindByIdByColumn(Id, "house_name", PublHouses, DbConnector.DBConnection)
-                    ).ShowDialog();
-                    readAllString();
+                        new PublHouseEditWindow(Id,
+                            new TableBase().FindByIdByColumn(Id, "house_name", PublHouses, DbConnector.DBConnection)
+                        ).ShowDialog();
+                        readAllString();
                     }
                 }
             );
