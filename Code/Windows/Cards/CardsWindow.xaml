@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfBDLab2.Windows.Cards.CardsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBDLab2.Windows.Cards"
+        xmlns:cards="clr-namespace:WpfBDLab2.VM.Forms.Cards"
+        mc:Ignorable="d"
+        Title="CardsWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <cards:CardsFormVM></cards:CardsFormVM>
+    </Window.DataContext>
+    <Window.FontSize>20</Window.FontSize>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="141*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="35" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding ReadAllString}" FontSize="15" Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1"/>
+        <TextBlock Text="Выберите id для Изменения или Удаления:" TextAlignment="Center" FontSize="20" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
+        <TextBox Text="{Binding Id}" TextAlignment="Center" Grid.Column="3" Grid.Row="3" />
+
+        <DockPanel  Margin="15" Grid.Column="1" Grid.Row="4" LastChildFill="True">
+            <Button Command="{Binding AddStudentCommand}" DockPanel.Dock="Top" Content="Добавить студ."></Button>
+            <Button Command="{Binding AddTeacherCommand}" DockPanel.Dock="Bottom" Content="Добавить преп."></Button>
+        </DockPanel>
+
+        <Button Command="{Binding EditCommand}" Content="Изменить" Grid.Column="2" Grid.Row="4" Margin="20"></Button>
+        <Button Command="{Binding DeleteCommand}" Content="Удалить" Grid.Column="3" Grid.Row="4" Margin="20"></Button>
+    </Grid>
+</Window>
