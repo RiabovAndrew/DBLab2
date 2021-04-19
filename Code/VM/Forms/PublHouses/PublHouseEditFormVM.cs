@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfBDLab2.DataBase.Tables;
 
 namespace WpfBDLab2.VM.Forms.PublHouses
 {
@@ -13,7 +14,7 @@ namespace WpfBDLab2.VM.Forms.PublHouses
         private int _id;
         private string _name;
         private ICommand _cancelCommand;
-        private ICommand _addCommand;
+        private ICommand _editCommand;
 
         public PublHouseEditFormVM(int id, string name)
         {
@@ -48,9 +49,9 @@ namespace WpfBDLab2.VM.Forms.PublHouses
                 }
             );
 
-        public ICommand AddCommand => _addCommand ??= new RelayCommand.RelayCommand((o) => {
-            new DataBase.Tables.Publ_Houses(DbConnector, Name).Insert();
-            var ms = MessageBox.Show("Новая запись была добавлена!");
+        public ICommand EditCommand => _editCommand ??= new RelayCommand.RelayCommand((o) => {
+            new Publ_Houses(DbConnector).EditByID(Id, new Publ_Houses(DbConnector, Name));
+            var ms = MessageBox.Show("Запись была обновлена!");
             var window = o as Window;
             window?.Close();
         });
